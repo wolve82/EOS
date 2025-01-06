@@ -1,0 +1,31 @@
+# ARG PYTHON_VERSION=3.12.7
+# FROM python:${PYTHON_VERSION}-slim
+FROM mcr.microsoft.com/devcontainers/python:1-3.12
+
+
+# ENV VIRTUAL_ENV="/opt/venv"
+# ENV PATH="${VIRTUAL_ENV}/bin:${PATH}"
+# ENV MPLCONFIGDIR="/tmp/mplconfigdir"
+# ENV EOS_DIR="/workspaces/EOS"
+# ENV EOS_CACHE_DIR="${EOS_DIR}/cache"
+# ENV EOS_OUTPUT_DIR="${EOS_DIR}/output"
+# ENV EOS_CONFIG_DIR="${EOS_DIR}/config"
+
+# RUN adduser --system --group --no-create-home eos \
+#     && mkdir -p "${MPLCONFIGDIR}" \
+#     && chown eos "${MPLCONFIGDIR}" \
+#     && mkdir -p "${EOS_CACHE_DIR}" \
+#     && chown eos "${EOS_CACHE_DIR}" \
+#     && mkdir -p "${EOS_OUTPUT_DIR}" \
+#     && chown eos "${EOS_OUTPUT_DIR}" \
+#     && mkdir -p "${EOS_CONFIG_DIR}" \
+#     && chown eos "${EOS_CONFIG_DIR}"
+
+# WORKDIR "${EOS_DIR}"
+
+# # Install Python dependencies from requirements
+# COPY requirements.txt .
+# COPY requirements-dev.txt .
+# RUN pip install -r requirements-dev.txt
+
+WORKDIR /workspaces

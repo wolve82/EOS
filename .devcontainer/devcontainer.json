@@ -1,0 +1,52 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+  "name": "EOS Dev",
+  "context": "..",
+  "dockerFile": "../Dockerfile.dev",
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "./.devcontainer/postCreateCommands.sh",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      // Please keep this section in sync with settings in /.vscode/extensions.json
+      "extensions": [
+        //python
+        "ms-python.python",
+        "ms-python.debugpy",
+        "charliermarsh.ruff",
+        "ms-python.mypy-type-checker",
+
+        // misc
+        "swellaby.workspace-config-plus", // allows user and shared settings
+        "christian-kohler.path-intellisense",
+        "esbenp.prettier-vscode"
+      ],
+      // Please keep this section in sync with settings in /.vscode/settings.json
+      "settings": {
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        },
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFoldingRangeProvider": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "python.analysis.autoImportCompletions": true,
+        "mypy-type-checker.importStrategy": "fromEnvironment",
+        "python.testing.pytestArgs": [],
+        "python.testing.unittestEnabled": false,
+        "python.testing.pytestEnabled": true
+      }
+    }
+  }
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
